@@ -7,15 +7,16 @@
  *
  ******/
   
- // start Settings
-    var snow_no = 10; // Antal fnug 
-    var flake1 = "fnug1.png";
-    var flake2 = "fnug2.png";
-    var flake3 = "fnug3.png";
-    var snow_browser_width = 160; // Banner vidde
-    var snow_browser_height = 600; // Banner højde
- // End settings
  
+    // Start Settings
+    var snow_no = 4; // Antal fnug 
+    var flake1 = "blad1.png";
+    var flake2 = "blad2.png";
+    var flake3 = "blad3.png";
+    var snow_browser_width = 300; // Banner vidde
+    var snow_browser_height = 650; // Banner højde
+    // End settings
+
     var snow_dx = [];
     var snow_xp = [];
     var snow_yp = [];
@@ -24,9 +25,15 @@
     var snow_sty = [];
     var rnd, snow_img;
 
+    var stopmenow = "true";
+    setTimeout(function() {
+      stopmenow = "false";
+    }, 28000);
+
     var el = document.getElementById('flakesness'),
       elChild;
-    for (i = 0; i < snow_no; i++) {
+window.onload = function (){  
+   for (i = 0; i < snow_no; i++) {
       rnd = Math.floor((Math.random() * 3) + 1);
       if (rnd == 3) {
         snow_img = flake2;
@@ -49,12 +56,11 @@
       elChild.innerHTML = "<\img src=\"" + snow_img + "\" border=\"0\">";
       el.appendChild(elChild);
     }
-
-    var stopmenow = "true";
-    setTimeout(function() {
-      stopmenow = "false";
-    }, 28000);
-
+setTimeout(function () { 
+  SnowStart();
+  },2500);
+}(); 
+   
     function SnowStart() {
       if (stopmenow == "true") {
         for (i = 0; i < snow_no; i++) {
@@ -72,13 +78,5 @@
         snow_time = setTimeout("SnowStart()", 30);
       }
     }
-
-    setTimeout(function() {
-      SnowStart();
-    }, 1500);
-
-    setTimeout(function() {
-      SnowStart();
-    }, 1000);
 
      // END Snow fall *****************************************************
