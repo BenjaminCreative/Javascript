@@ -5,9 +5,9 @@
 ***/
 
 // Settings
-var  speed = 0.04,
-     width_boundry: 600,
-     height_boundry: 160;
+var  speed = 0.04, // Speed
+     widthboundry: 600, // Set boundary width
+     heightboundry: 160;  // Set boundary height
 
 
 // START MOVING  
@@ -27,8 +27,8 @@ var  speed = 0.04,
     });
 
     function makeNewPosition(div, w, h) {
-      var nh = Math.floor(Math.random() * width_boundry); // Set boundary height
-      var nw = Math.floor(Math.random() * height_boundry); // Set boundary width
+      var nh = Math.ceil(Math.random() * widthboundry) * (Math.round(Math.random()) ? 1 : -1)
+      var nw = Math.floor(Math.random() * heightboundry); // Set boundary width
       console.log(nh + " // " + nw);
       return [nh, nw];
     }
