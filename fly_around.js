@@ -1,4 +1,16 @@
-     // START MOVING  
+/***
+*
+* jQuery independant:  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+*
+***/
+
+// Settings
+var  speed = 0.04,
+     width_boundry: 600,
+     height_boundry: 160;
+
+
+// START MOVING  
     var timeenabled = "true";
     $(document).ready(function() {
       var position, w, h;
@@ -15,8 +27,8 @@
     });
 
     function makeNewPosition(div, w, h) {
-      var nh = Math.floor(Math.random() * 600); // Set boundary height
-      var nw = Math.floor(Math.random() * 160); // Set boundary width
+      var nh = Math.floor(Math.random() * width_boundry); // Set boundary height
+      var nw = Math.floor(Math.random() * height_boundry); // Set boundary width
       console.log(nh + " // " + nw);
       return [nh, nw];
     }
@@ -40,7 +52,7 @@
       var x = Math.abs(prev[1] - next[1]);
       var y = Math.abs(prev[0] - next[0]);
       var greatest = x > y ? x : y;
-      var speedModifier = 0.04;
+      var speedModifier = speed;
       var speed = Math.ceil(greatest / speedModifier);
       return speed;
     }
